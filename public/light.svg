@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="48" cy="48" r="18"/>
+  <rect class="cls-1" x="44" width="8" height="24" rx="4" ry="4"/>
+  <rect class="cls-1" x="69.46" y="10.54" width="8" height="24" rx="4" ry="4" transform="translate(37.46 -45.34) rotate(45)"/>
+  <rect class="cls-1" x="80" y="36" width="8" height="24" rx="4" ry="4" transform="translate(132 -36) rotate(90)"/>
+  <rect class="cls-1" x="69.46" y="61.46" width="8" height="24" rx="4" ry="4" transform="translate(177.34 73.46) rotate(135)"/>
+  <rect class="cls-1" x="44" y="72" width="8" height="24" rx="4" ry="4" transform="translate(96 168) rotate(180)"/>
+  <rect class="cls-1" x="18.54" y="61.46" width="8" height="24" rx="4" ry="4" transform="translate(-13.46 141.34) rotate(-135)"/>
+  <rect class="cls-1" x="8" y="36" width="8" height="24" rx="4" ry="4" transform="translate(-36 60) rotate(-90)"/>
+  <rect class="cls-1" x="18.54" y="10.54" width="8" height="24" rx="4" ry="4" transform="translate(-9.34 22.54) rotate(-45)"/>
+</svg>

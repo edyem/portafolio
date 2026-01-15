@@ -29,23 +29,53 @@ export default function ThemeToggles() {
   }, [mode, skin]);
 
   return (
-    <section className="card">
-      <div className="row">
-        <strong>Modo</strong>
-        <button className="btn" type="button" onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
-          {mode === "dark" ? "Oscuro" : "Claro"}
+    <section className="header">
+      <div className="row rtl">
+        <button
+          className="toggle"
+          type="button"
+          aria-label="Cambiar modo oscuro/claro"
+          aria-pressed={mode === "dark" ? "true" : "false"}
+          onClick={() => {
+            const next = mode === "dark" ? "light" : "dark";
+            if ("startViewTransition" in document) {
+              document.startViewTransition(() => setMode(next));
+            } else {
+              setMode(next);
+            }
+          }}
+        >
+          <span className="toggle__trackIcons" aria-hidden="true">
+            <img src="/dark.svg" alt="" />
+            <img src="/light.svg" alt="" />
+          </span>
+
+          <span className="toggle__knob" aria-hidden="true">
+            <img
+              className="toggle__icon"
+              src={mode === "dark" ? "/dark.svg" : "/light.svg"}
+              alt=""
+            />
+          </span>
         </button>
 
         <strong style={{ marginLeft: 8 }}>Skin</strong>
-        <select value={skin} onChange={(e) => setSkin(e.target.value)}>
+        <select
+          value={skin}
+          onChange={(e) => {
+            const next = e.target.value;
+            if ("startViewTransition" in document) {
+              document.startViewTransition(() => setSkin(next));
+            } else {
+              setSkin(next);
+            }
+          }}
+        >
           <option value="aurora">Aurora</option>
           <option value="luxe">Luxe</option>
           <option value="minimal">Minimal</option>
         </select>
       </div>
-      <p className="muted" style={{ margin: "12px 0 0 0" }}>
-        Demo: tokens CSS + isla React (sin login, sin query).
-      </p>
     </section>
   );
 }
