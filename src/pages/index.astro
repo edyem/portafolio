@@ -1,22 +1,15 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import ThemeToggles from "../components/ThemeToggles.jsx";
 ---
 
 <Layout>
-	<div style="
-		position:fixed;
-		top:12px;
-		left:12px;
-		z-index:99999;
-		background:white;
-		padding:8px 12px;
-		border:2px solid black;"
-	>
-  		DESPLEGADO
-	</div>
-	<Welcome />
+  <main class="container">
+    <ThemeToggles client:load />
+
+    <section class="card" style="margin-top: 16px;">
+      <h1 style="margin: 0 0 8px 0;">Mi Portafolio</h1>
+      <p class="muted" style="margin: 0;">El tema cambia por CSS variables.</p>
+    </section>
+  </main>
 </Layout>

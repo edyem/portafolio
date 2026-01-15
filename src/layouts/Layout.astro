@@ -1,11 +1,29 @@
+---
+import "../styles/theme.css";
+---
+
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+
+		<script is:inline>
+      		(() => {
+        		const DEFAULT_MODE = "dark";
+        		const DEFAULT_SKIN = "aurora";
+        		const mode = localStorage.getItem("mode") || DEFAULT_MODE;
+        		const skin = localStorage.getItem("skin") || DEFAULT_SKIN;
+        		const root = document.documentElement;
+        		root.dataset.mode = mode;
+        		root.dataset.skin = skin;
+        		root.style.colorScheme = mode;
+      		})();
+    	</script>
 	</head>
 	<body>
 		<slot />
