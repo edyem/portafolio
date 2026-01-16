@@ -1,0 +1,29 @@
+---
+import emd from '../assets/emd.svg';
+import emdLight from '../assets/emdLight.svg';
+---
+
+<main>
+	<a href="https://emd.pages.dev/">
+		<img class="logo logo--dark" src={emd.src} width="100%" height="auto" alt="Erazo Muñoz Diseño" />
+		<img class="logo logo--light" src={emdLight.src} width="100%" height="auto" alt="Erazo Muñoz Diseño" />
+		<h1 style="text-align: center">Erazo Muñoz Diseño</h1>
+	</a>
+</main>
+
+<style>
+	.logo--light { display: none; }
+	:root[data-mode="light"] .logo--dark { display: none; }
+	:root[data-mode="light"] .logo--light { display: block; }
+
+	main {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+</style>

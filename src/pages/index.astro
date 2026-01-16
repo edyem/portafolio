@@ -1,15 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ThemeToggles from "../components/ThemeToggles.jsx";
+import Hero from "../components/Hero.astro"
+
 ---
 
 <Layout>
   <main class="container">
     <ThemeToggles client:load />
 
-    <section class="card" style="margin-top: 16px;">
-      <h1 style="margin: 0 0 8px 0;">Mi Portafolio</h1>
-      <p class="muted" style="margin: 0;">El tema cambia por CSS variables.</p>
-    </section>
+    <Hero />
   </main>
 </Layout>
