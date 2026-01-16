@@ -1,8 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ThemeToggles from "../components/ThemeToggles.jsx";
-import Hero from "../components/Hero.astro"
+import Hero from "../components/Hero.astro";
+import { getCollection } from "astro:content";
 
+const proyects = await getCollection("proyects");
+proyects.sort((a, b) => b.data.date - a.data.date);
+
+console.log(proyects)
 ---
 
 <Layout>
@@ -10,5 +15,26 @@ import Hero from "../components/Hero.astro"
     <ThemeToggles client:load />
 
     <Hero />
+
+    <section aria-label="Proyectos">
+      <div class="collection" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1%;">
+        {proyects.map((p) => {
+          const { title, date, description, imagen } = p.data;
+
+          return (
+            <article class="card" style="margin-top: 12px;">
+              <img
+                src={imagen.startsWith("/") ? imagen : `/${imagen}`}
+                alt={title}
+                style="width: 100%; height: auto; display: block; border-radius: 12px;"
+                loading="lazy"
+              />
+              <h3 style="margin: 12px 0 6px 0;">{title} ({date})</h3>
+              <p class="muted" style="margin: 0;">{description}</p>
+            </article>
+          );
+        })}
+      </div>
+    </section>
   </main>
 </Layout>
