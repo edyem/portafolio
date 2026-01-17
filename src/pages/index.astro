@@ -11,26 +11,38 @@ console.log(proyects)
 ---
 
 <Layout>
-  <main class="container">
+  <main class="page-main">
     <ThemeToggles client:load />
 
     <Hero />
 
-    <section aria-label="Proyectos">
-      <div class="collection" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1%;">
+    <section aria-label="Proyectos" class="projects">
+      <div class="projects-list">
         {proyects.map((p) => {
           const { title, date, description, imagen } = p.data;
 
           return (
-            <article class="card" style="margin-top: 12px;">
-              <img
-                src={imagen.startsWith("/") ? imagen : `/${imagen}`}
-                alt={title}
-                style="width: 100%; height: auto; display: block; border-radius: 12px;"
-                loading="lazy"
-              />
-              <h3 style="margin: 12px 0 6px 0;">{title} ({date})</h3>
-              <p class="muted" style="margin: 0;">{description}</p>
+            <article class="project-card">
+              <div class="project-imageWrapper">
+                <img
+                  src={imagen.startsWith("/") ? imagen : `/${imagen}`}
+                  alt={title}
+                  class="project-image"
+                  loading="lazy"
+                />
+                <div class="project-overlay">
+                  <h3 class="project-title">{title}</h3>
+                  <h4 class="project-year muted">{date}</h4>
+                  <p class="project-description muted">{description}</p>
+                </div>
+              </div>
+
+              <div class="project-meta">
+                <h3 class="project-title">
+                  {title} <span class="project-yearInline muted">({date})</span>
+                </h3>
+                <p class="project-description muted">{description}</p>
+              </div>
             </article>
           );
         })}

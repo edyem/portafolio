@@ -46,7 +46,7 @@ export default function ThemeToggles() {
           }}
         >
           <span className="toggle__trackIcons" aria-hidden="true">
-            <img src="/dark.svg" alt="" />
+            <img class="darkmode" src="/dark.svg" alt="" />
             <img src="/light.svg" alt="" />
           </span>
 
@@ -59,22 +59,45 @@ export default function ThemeToggles() {
           </span>
         </button>
 
-        <strong style={{ marginLeft: 8 }}>Skin</strong>
-        <select
-          value={skin}
-          onChange={(e) => {
-            const next = e.target.value;
-            if ("startViewTransition" in document) {
-              document.startViewTransition(() => setSkin(next));
-            } else {
-              setSkin(next);
-            }
-          }}
-        >
-          <option value="aurora">Aurora</option>
-          <option value="luxe">Luxe</option>
-          <option value="minimal">Minimal</option>
-        </select>
+        <div className="skinToggle">
+          <button
+            type="button"
+            className={`skinToggle__btn ${
+              skin === "aurora" ? "skinToggle__btn--active" : ""
+            }`}
+            aria-label="Skin carrusel"
+            aria-pressed={skin === "aurora" ? "true" : "false"}
+            onClick={() => {
+              const next = "aurora";
+              if ("startViewTransition" in document) {
+                document.startViewTransition(() => setSkin(next));
+              } else {
+                setSkin(next);
+              }
+            }}
+          >
+            <img src="/carousel.svg" alt="" />
+          </button>
+
+          <button
+            type="button"
+            className={`skinToggle__btn ${
+              skin === "luxe" ? "skinToggle__btn--active" : ""
+            }`}
+            aria-label="Skin cuadrícula"
+            aria-pressed={skin === "luxe" ? "true" : "false"}
+            onClick={() => {
+              const next = "luxe";
+              if ("startViewTransition" in document) {
+                document.startViewTransition(() => setSkin(next));
+              } else {
+                setSkin(next);
+              }
+            }}
+          >
+            <img src="/grid.svg" alt="" />
+          </button>
+        </div>
       </div>
     </section>
   );

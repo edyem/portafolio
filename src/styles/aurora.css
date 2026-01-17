@@ -1,0 +1,44 @@
+/* Skin 1: carrusel (Aurora por defecto) */
+:root[data-skin="aurora"] .projects {
+    overflow: hidden;
+}
+
+:root[data-skin="aurora"] .projects-list {
+    display: flex;
+    align-items: stretch;
+    animation: projects-scroll 40s linear infinite;
+}
+
+:root[data-skin="aurora"] .project-card {
+    flex: 0 0 72%;
+    max-width: 72%;
+}
+
+:root[data-skin="aurora"] .projects:hover .projects-list {
+    animation-play-state: paused;
+}
+
+:root[data-skin="aurora"] .project-card:hover .project-image {
+    transform: scale(1.08);
+    filter: brightness(0.6);
+}
+
+:root[data-skin="aurora"] .project-card:hover .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* En carrusel el contenido vive dentro del overlay */
+:root[data-skin="aurora"] .project-meta {
+    display: none;
+}
+
+@keyframes projects-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}

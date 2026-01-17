@@ -1,0 +1,38 @@
+/* Skin 2+: cuadrícula similar a la actual */
+:root[data-skin="luxe"] .projects-list {
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+:root[data-skin="luxe"] .projects {
+    padding-block: 12px;
+    overflow: visible;
+}
+
+:root[data-skin="luxe"] .project-card {
+    border-radius: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.02);
+    transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+:root[data-skin="luxe"] .project-card:hover {
+    box-shadow: 5px 10px 12px 0px rgba(0,0,0,0.04);
+    transform: translateY(-15px);
+}
+
+:root[data-skin="luxe"] .project-image {
+    max-height: 230px;
+}
+
+:root[data-skin="luxe"] .project-overlay {
+    display: none;
+}
+
+:root[data-skin="luxe"] .project-meta {
+    padding: 16px 24px;
+}

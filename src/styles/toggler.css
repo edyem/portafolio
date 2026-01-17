@@ -1,0 +1,122 @@
+/* === Toggle pill (dark/light) === */
+.toggle {
+  --h: 44px;
+  --w: 92px;
+  --pad: 4px;
+  --b: 2px; /* <--- grosor del borde */
+  --dur: 220ms;
+
+  /* knob = altura interna real (resta padding + borde) */
+  --knob: calc(var(--h) - (var(--pad) * 2) - (var(--b) * 2));
+
+  width: var(--w);
+  height: var(--h);
+  box-sizing: border-box;
+
+  border-radius: 999px;
+  border: var(--b) solid var(--border);
+
+  display: inline-flex;
+  align-items: center;
+  padding: var(--pad);
+
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--pri), transparent 70%);
+  outline-offset: 3px;
+}
+
+.toggle__knob {
+  width: var(--knob);
+  height: var(--knob);
+  border-radius: 999px;
+
+  background: var(--bg);
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+
+  display: grid;
+  place-items: center;
+
+  transition: transform var(--dur) ease, background var(--dur) ease;
+  will-change: transform;
+}
+
+/* dark = left */
+:root[data-mode="dark"] .toggle__knob { transform: translateX(0); }
+
+/* light = right (recorrido basado en ancho interno REAL) */
+:root[data-mode="light"] .toggle__knob {
+  transform: translateX(calc(
+    var(--w) - (var(--pad) * 2) - (var(--b) * 2) - var(--knob)
+  ));
+  background: #0066cc;
+}
+
+:root[data-mode="light"] .darkmode {
+  filter: invert();
+}
+
+.toggle__icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.toggle__trackIcons {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* respeta el padding + borde */
+  padding: 0 calc(var(--pad) + var(--b) + 10px);
+
+  pointer-events: none;
+  opacity: .35;
+}
+
+.toggle__trackIcons img {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* Skin selector buttons */
+.skinToggle {
+  display: inline-flex;
+  gap: 6px;
+  margin-left: 6px;
+}
+
+.skinToggle__btn {
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.35;
+  transition: opacity 160ms ease;
+}
+
+.skinToggle__btn img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.skinToggle__btn--active {
+  opacity: 1;
+}
+
+:root[data-mode="light"] .skinToggle__btn img {
+  filter: invert();
+}

@@ -3,11 +3,10 @@ import emd from '../assets/emd.svg';
 import emdLight from '../assets/emdLight.svg';
 ---
 
-<main>
+<main class="hero">
 	<a href="https://emd.pages.dev/">
-		<img class="logo logo--dark" src={emd.src} width="100%" height="auto" alt="Erazo Muñoz Diseño" />
-		<img class="logo logo--light" src={emdLight.src} width="100%" height="auto" alt="Erazo Muñoz Diseño" />
-		<h1 style="text-align: center">Erazo Muñoz Diseño</h1>
+		<img class="logo logo--dark" src={emd.src} alt="Erazo Muñoz Diseño" />
+		<img class="logo logo--light" src={emdLight.src} alt="Erazo Muñoz Diseño" />
 	</a>
 </main>
 
@@ -16,14 +15,22 @@ import emdLight from '../assets/emdLight.svg';
 	:root[data-mode="light"] .logo--dark { display: none; }
 	:root[data-mode="light"] .logo--light { display: block; }
 
-	main {
-		height: 100%;
+	.hero {
+		height: 30dvh !important;
 		display: flex;
+		align-items: center;
 		justify-content: center;
 	}
 
 	a {
 		text-decoration: none;
 		color: inherit;
+		text-align: center;
 	}
+
+	img {
+		width: 100% !important;
+		height: auto;
+	}
+
 </style>
