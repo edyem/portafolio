@@ -47,6 +47,17 @@
 }
 
 
-@media screen {
-    
+@media (max-width: 768px) {
+
+    :root[data-skin="luxe"] .projects-list--single {
+        padding: 0 5%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    :root[data-skin="luxe"] .project-meta {
+        padding: 18px 12px 18px;
+    }
+
 }
