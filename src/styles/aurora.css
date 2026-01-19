@@ -61,7 +61,17 @@
     animation: projects-scroll-y 40s linear infinite;
   }
 
+  :root[data-skin="aurora"] .project-card {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+
   :root[data-skin="aurora"] .project-overlay {
     opacity: 1;
-  }
+}
+
+:root[data-skin="aurora"] .project-image {
+    transform: scale(1.08);
+    opacity: 0.35;
+}
 }
