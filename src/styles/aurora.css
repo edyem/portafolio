@@ -47,3 +47,22 @@
         transform: translateX(-100%);
     }
 }
+
+@keyframes projects-scroll-y {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100%); }
+}
+
+@media (max-width: 768px) {
+  :root[data-skin="aurora"] .projects-list {
+    flex-direction: column;      /* eje vertical */
+    flex-wrap: nowrap;
+    height: 50dvh;               /* o la altura que quieras */
+    animation: projects-scroll-y 40s linear infinite;
+  }
+
+  :root[data-skin="aurora"] .project-card {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+}
