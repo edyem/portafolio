@@ -17,7 +17,7 @@
 
   /* TYPO TOKENS */
   --font: "Archivo", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  --radius: 18px;
+  --radius: 10px;
 }
 
 /* Light mode overrides */
@@ -91,7 +91,6 @@ body {
 
 .projects-list {
   list-style: none;
-  width: 50%;
 }
 
 .proyect-card:hover {
@@ -99,6 +98,7 @@ body {
 }
 
 .project-imageWrapper {
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
@@ -107,7 +107,7 @@ body {
   width: 100%;
   display: block;
   object-fit: cover;
-  transition: transform 400ms ease, filter 300ms ease;
+  transition: transform 400ms ease, opacity 300ms ease;
 }
 
 .project-overlay {
@@ -119,9 +119,9 @@ body {
   justify-content: flex-end;
   color: var(--text);
   background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.7),
-      rgba(0, 0, 0, 0.2),
-      transparent 60%);
+      rgba(0, 0, 0, 0.0) /*0.7*/,
+      rgba(0, 0, 0, 0.0) /*0.2*/,
+      transparent 100%);
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 260ms ease, transform 260ms ease;

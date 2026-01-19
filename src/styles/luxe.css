@@ -1,9 +1,18 @@
 /* Skin 2+: cuadrícula similar a la actual */
-:root[data-skin="luxe"] .projects-list {
+:root[data-skin="luxe"] .page-main {
+  max-height: unset;
+  overflow-y: unset;
+}
+
+:root[data-skin="luxe"] .projects-list--single {
     padding: 0 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
+}
+
+:root[data-skin="luxe"] .projects-list--loop {
+    display: none;
 }
 
 :root[data-skin="luxe"] .projects {
@@ -12,7 +21,7 @@
 }
 
 :root[data-skin="luxe"] .project-card {
-    border-radius: 10px;
+    border-radius: var(--radius);
     background: var(--card);
     border: 1px solid var(--border);
     overflow: hidden;
@@ -22,7 +31,7 @@
 
 :root[data-skin="luxe"] .project-card:hover {
     box-shadow: 5px 10px 12px 0px rgba(0,0,0,0.04);
-    transform: translateY(-15px);
+    transform: translateY(-6px);
 }
 
 :root[data-skin="luxe"] .project-image {

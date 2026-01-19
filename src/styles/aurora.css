@@ -3,15 +3,20 @@
     overflow: hidden;
 }
 
-:root[data-skin="aurora"] .projects-list {
+:root[data-skin="aurora"] .projects-list--loop {
     display: flex;
     align-items: stretch;
+    flex-wrap: nowrap;
     animation: projects-scroll 40s linear infinite;
 }
 
+:root[data-skin="aurora"] .projects-list--single {
+    display: none;
+}
+
 :root[data-skin="aurora"] .project-card {
-    flex: 0 0 72%;
-    max-width: 72%;
+    flex: 0 0 25%;
+    max-width: 25%;
 }
 
 :root[data-skin="aurora"] .projects:hover .projects-list {
@@ -20,7 +25,7 @@
 
 :root[data-skin="aurora"] .project-card:hover .project-image {
     transform: scale(1.08);
-    filter: brightness(0.6);
+    opacity: 0.25;
 }
 
 :root[data-skin="aurora"] .project-card:hover .project-overlay {
