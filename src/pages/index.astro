@@ -22,9 +22,10 @@ console.log(proyects)
       <div class="projects-list projects-list--single">
         {proyects.map((p) => {
           const { title, date, description, imagen } = p.data;
+          const href = `/${p.slug}/`;
 
           return (
-            <article class="project-card">
+            <a href={href} class="project-card">
               <div class="project-imageWrapper">
                 <img
                   src={imagen.startsWith("/") ? imagen : `/${imagen}`}
@@ -45,7 +46,7 @@ console.log(proyects)
                 </h3>
                 <p class="project-description muted">{description}</p>
               </div>
-            </article>
+            </a>
           );
         })}
       </div>
@@ -53,9 +54,10 @@ console.log(proyects)
       <div class="projects-list projects-list--loop">
         {loopedProyects.map((p) => {
           const { title, date, description, imagen } = p.data;
+          const href = `/${p.slug}/`;
 
           return (
-            <article class="project-card">
+            <a href={href} class="project-card">
               <div class="project-imageWrapper">
                 <img
                   src={imagen.startsWith("/") ? imagen : `/${imagen}`}
@@ -76,7 +78,7 @@ console.log(proyects)
                 </h3>
                 <p class="project-description muted">{description}</p>
               </div>
-            </article>
+            </a>
           );
         })}
       </div>

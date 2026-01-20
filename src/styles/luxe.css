@@ -1,7 +1,6 @@
 /* Skin 2+: cuadrícula similar a la actual */
 :root[data-skin="luxe"] .page-main {
-  max-height: unset;
-  overflow-y: unset;
+    max-height: unset;
 }
 
 :root[data-skin="luxe"] .projects-list--single {
@@ -25,12 +24,12 @@
     background: var(--card);
     border: 1px solid var(--border);
     overflow: hidden;
-    box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.02);
+    box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.02);
     transition: box-shadow 160ms ease, transform 160ms ease;
 }
 
 :root[data-skin="luxe"] .project-card:hover {
-    box-shadow: 5px 10px 12px 0px rgba(0,0,0,0.04);
+    box-shadow: 5px 10px 12px 0px rgba(0, 0, 0, 0.04);
     transform: translateY(-6px);
 }
 

@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ThemeToggles from "../components/ThemeToggles.jsx";
+import Hero from "../components/Hero.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const proyects = await getCollection("proyects");
+
+  return proyects.map((p) => ({
+    params: { id: p.slug },
+    props: { proyect: p },
+  }));
+}
+
+const { proyect } = Astro.props;
+const { title, date, description, imagen, collage } = proyect.data;
+const { Content } = await proyect.render();
+
+const CLOUDINARY_CLOUD_NAME = "duvvgcu6n";
+const CLOUDINARY_BASE = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+function getCloudinaryUrl(id, variant) {
+  const params =
+    variant === "thumb"
+      ? "w_800,c_fill,q_auto,f_auto"
+      : "w_2000,c_fit,q_auto,f_auto";
+
+  // 👇 importante: sin versión aquí y añadiendo .jpg
+  return `${CLOUDINARY_BASE}/${params}/${id}.jpg`;
+}
+---
+
+<Layout>
+  <main class="page-main project-view">
+    <ThemeToggles client:load showSkins={false} />
+
+    <Hero />
+
+    <section class="projects projects--detail">
+      <div class="proyect-info">
+        <a href="/" class="backbutton"><img src="/back-icon.svg" class="backicon"></a>
+        <h1 class="project-title titling">
+          {title} <span class="muted">({date})</span>
+        </h1>
+
+        <Content />
+      </div>
+
+      {collage && collage.length > 0 && (
+        <>
+          <section class="project-collage">
+            {collage.map((id) => (
+              <a
+                href={`#img-${id}`}
+                class="project-collage__item"
+              >
+                <img
+                  src={getCloudinaryUrl(id, "thumb")}
+                  alt={title}
+                  loading="lazy"
+                  class="project-collage__image"
+                />
+              </a>
+            ))}
+          </section>
+
+          <section class="project-lightbox">
+            {collage.map((id) => (
+              <div id={`img-${id}`} class="lightbox">
+                <a href="#!" class="lightbox__backdrop" aria-label="Cerrar"></a>
+                <div class="lightbox__content">
+                  <a href="#!" class="lightbox__close" aria-label="Cerrar vista">
+                    ✕
+                  </a>
+                  <img
+                    src={getCloudinaryUrl(id, "full")}
+                    alt={title}
+                    loading="lazy"
+                    class="lightbox__image"
+                  />
+                </div>
+              </div>
+            ))}
+          </section>
+        </>
+      )}
+    </section>
+  </main>
+</Layout>

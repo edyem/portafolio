@@ -49,29 +49,48 @@
 }
 
 @keyframes projects-scroll-y {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-100%); }
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
 }
 
 @media (max-width: 768px) {
-  :root[data-skin="aurora"] .projects-list {
-    flex-direction: column;      /* eje vertical */
-    flex-wrap: nowrap;
-    height: 50dvh;               /* o la altura que quieras */
-    animation: projects-scroll-y 40s linear infinite;
-  }
+    :root[data-skin="aurora"] .projects-list {
+        flex-direction: column;
+        /* eje vertical */
+        flex-wrap: nowrap;
+        height: 100%;
+        /* o la altura que quieras */
+        animation: projects-scroll-y 40s linear infinite;
+    }
 
-  :root[data-skin="aurora"] .project-card {
-    flex: 0 0 auto;
-    max-width: 100%;
-  }
+    :root[data-skin="aurora"] .project-card {
+        flex: 0 0 auto;
+        max-width: 100%;
+    }
 
-  :root[data-skin="aurora"] .project-overlay {
-    opacity: 1;
-}
+    :root[data-skin="aurora"] .project-overlay {
+        opacity: 1;
+        align-items: center;
+    }
 
-:root[data-skin="aurora"] .project-image {
-    transform: scale(1.08);
-    opacity: 0.35;
-}
+    :root[data-skin="aurora"] .project-image {
+        transform: scale(1.08);
+        opacity: 0.35;
+    }
+
+    :root[data-skin="aurora"] .project-year,
+    :root[data-skin="aurora"] .project-yearInline {
+        margin-top: 4px;
+    }
+
+    :root[data-skin="aurora"] .project-description {
+        font-size: 0.9rem;
+        margin-top: -4px;
+    }
+
 }

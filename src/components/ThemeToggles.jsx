@@ -10,7 +10,7 @@ function apply(mode, skin) {
   root.style.colorScheme = mode;
 }
 
-export default function ThemeToggles() {
+export default function ThemeToggles({ showSkins = true }) {
   const [mode, setMode] = useState(DEFAULT_MODE);
   const [skin, setSkin] = useState(DEFAULT_SKIN);
 
@@ -46,7 +46,7 @@ export default function ThemeToggles() {
           }}
         >
           <span className="toggle__trackIcons" aria-hidden="true">
-            <img class="darkmode" src="/dark.svg" alt="" />
+            <img className="darkmode" src="/dark.svg" alt="" />
             <img src="/light.svg" alt="" />
           </span>
 
@@ -59,46 +59,49 @@ export default function ThemeToggles() {
           </span>
         </button>
 
-        <div className="skinToggle">
-          <button
-            type="button"
-            className={`skinToggle__btn ${
-              skin === "aurora" ? "skinToggle__btn--active" : ""
-            }`}
-            aria-label="Skin carrusel"
-            aria-pressed={skin === "aurora" ? "true" : "false"}
-            onClick={() => {
-              const next = "aurora";
-              if ("startViewTransition" in document) {
-                document.startViewTransition(() => setSkin(next));
-              } else {
-                setSkin(next);
-              }
-            }}
-          >
-            <img src="/carousel.svg" alt="" />
-          </button>
+        {showSkins && (
+          <div className="skinToggle">
+            <button
+              type="button"
+              className={`skinToggle__btn ${
+                skin === "aurora" ? "skinToggle__btn--active" : ""
+              }`}
+              aria-label="Skin carrusel"
+              aria-pressed={skin === "aurora" ? "true" : "false"}
+              onClick={() => {
+                const next = "aurora";
+                if ("startViewTransition" in document) {
+                  document.startViewTransition(() => setSkin(next));
+                } else {
+                  setSkin(next);
+                }
+              }}
+            >
+              <img src="/carousel.svg" alt="" />
+            </button>
 
-          <button
-            type="button"
-            className={`skinToggle__btn ${
-              skin === "luxe" ? "skinToggle__btn--active" : ""
-            }`}
-            aria-label="Skin cuadrícula"
-            aria-pressed={skin === "luxe" ? "true" : "false"}
-            onClick={() => {
-              const next = "luxe";
-              if ("startViewTransition" in document) {
-                document.startViewTransition(() => setSkin(next));
-              } else {
-                setSkin(next);
-              }
-            }}
-          >
-            <img src="/grid.svg" alt="" />
-          </button>
-        </div>
+            <button
+              type="button"
+              className={`skinToggle__btn ${
+                skin === "luxe" ? "skinToggle__btn--active" : ""
+              }`}
+              aria-label="Skin cuadrA-cula"
+              aria-pressed={skin === "luxe" ? "true" : "false"}
+              onClick={() => {
+                const next = "luxe";
+                if ("startViewTransition" in document) {
+                  document.startViewTransition(() => setSkin(next));
+                } else {
+                  setSkin(next);
+                }
+              }}
+            >
+              <img src="/grid.svg" alt="" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
 }
+

@@ -6,7 +6,8 @@ const proyects = defineCollection({
         title: z.string(),
         date: z.number(),
         description: z.string(),
-        imagen: z.string(),        
+        imagen: z.string(),
+        collage: z.array(z.string()).optional(), 
     }),
 });
 

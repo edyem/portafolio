@@ -41,3 +41,42 @@ import "../styles/luxe.css";
 		height: 100%;
 	}
 </style>
+
+<script>
+  if (typeof window !== "undefined") {
+    // Bloquear menú contextual en imágenes
+    window.addEventListener("contextmenu", (event) => {
+      const target = event.target;
+      if (target instanceof HTMLImageElement) {
+        event.preventDefault();
+      }
+    });
+
+    // Transición de vista entre páginas internas
+    window.addEventListener("click", (event) => {
+      const anchor = event.target.closest?.("a");
+      if (!anchor) return;
+
+      const href = anchor.getAttribute("href");
+      if (!href || href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("#")) {
+        return;
+      }
+
+      // Solo aplicamos a enlaces de proyectos y botón de back
+      if (!anchor.classList.contains("project-card") && !anchor.classList.contains("backbutton")) {
+        return;
+      }
+
+      if (!("startViewTransition" in document)) {
+        return;
+      }
+
+      event.preventDefault();
+      const url = anchor.href;
+
+      document.startViewTransition(() => {
+        window.location.href = url;
+      });
+    });
+  }
+</script>
