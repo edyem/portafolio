@@ -310,7 +310,7 @@ a {
 }
 
 .backbutton {
-  position: absolute;
+  position:fixed;
   display: flex;
   background-color: var(--card);
   border: solid 1px var(--border);
@@ -319,6 +319,8 @@ a {
   padding: 16px;
   transition: all 80ms ease;
   z-index: 75;
+  margin: auto;
+  top: 40dvh;
 }
 
 .backbutton:hover {
@@ -361,6 +363,14 @@ strong {
     /* rellena huecos como masonry */
     gap: 12px;
     margin-top: 32px;
+  }
+
+  .backbutton {
+    padding: 8px;
+  }
+
+  .backicon {
+    width: 5dvw;
   }
 
 }
