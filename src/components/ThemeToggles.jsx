@@ -28,6 +28,60 @@ export default function ThemeToggles({ showSkins = true }) {
     apply(mode, skin);
   }, [mode, skin]);
 
+  useEffect(() => {
+    const backButton = document.querySelector(".backbutton");
+    if (!backButton) return;
+
+    let hideTimeout;
+    let isHovering = false;
+
+    const showBackButton = () => {
+      backButton.classList.add("is-visible");
+      if (hideTimeout) {
+        window.clearTimeout(hideTimeout);
+      }
+      hideTimeout = window.setTimeout(() => {
+        if (!isHovering) {
+          backButton.classList.remove("is-visible");
+        }
+      }, 800); // milisegundos visible tras terminar de hacer scroll
+    };
+
+    const handleScroll = () => {
+      showBackButton();
+    };
+
+    const handleMouseEnter = () => {
+      isHovering = true;
+      backButton.classList.add("is-visible");
+      if (hideTimeout) {
+        window.clearTimeout(hideTimeout);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      isHovering = false;
+      hideTimeout = window.setTimeout(() => {
+        if (!isHovering) {
+          backButton.classList.remove("is-visible");
+        }
+      }, 800);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    backButton.addEventListener("mouseenter", handleMouseEnter);
+    backButton.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      backButton.removeEventListener("mouseenter", handleMouseEnter);
+      backButton.removeEventListener("mouseleave", handleMouseLeave);
+      if (hideTimeout) {
+        window.clearTimeout(hideTimeout);
+      }
+    };
+  }, []);
+
   return (
     <section className="header">
       <div className="row rtl">
@@ -104,4 +158,3 @@ export default function ThemeToggles({ showSkins = true }) {
     </section>
   );
 }
-
