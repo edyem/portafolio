@@ -244,7 +244,7 @@ a {
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease-out;
-  z-index: 50;
+  z-index: 150;
 }
 
 .lightbox:target {
