@@ -59,13 +59,17 @@
 }
 
 @media (max-width: 768px) {
+
+    :root[data-skin="aurora"] .page-main {
+        max-height: 100dvh !important;
+        overflow-y: hidden;
+    }
+    
     :root[data-skin="aurora"] .projects-list {
         flex-direction: column;
-        /* eje vertical */
         flex-wrap: nowrap;
         height: 100%;
-        /* o la altura que quieras */
-        animation: projects-scroll-y 40s linear infinite;
+        animation: projects-scroll-y 20s linear infinite;
     }
 
     :root[data-skin="aurora"] .project-card {
@@ -75,7 +79,6 @@
 
     :root[data-skin="aurora"] .project-overlay {
         opacity: 1;
-        align-items: center;
     }
 
     :root[data-skin="aurora"] .project-image {
