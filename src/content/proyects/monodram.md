@@ -21,4 +21,11 @@ collage:
   - 15_eu1yps
 ---
 
-Sesión fotográfica con banda durante grabación de estudio.
+Sesión fotográfica con la banda **Monodram** durante una grabación en estudio.  
+El objetivo fue documentar el proceso creativo y capturar la energía del performance desde una estética cruda, íntima y cinematográfica.
+
+- **Documental / behind the scenes:** Momentos reales, sin poses forzadas.
+- **Atmósfera:** Luces de estudio, texturas, grano y contraste para un look editorial.
+- **Narrativa:** Instrumentos, detalles, retratos y escenas de interacción para contar la sesión completa.
+
+_Fotografía · Dirección visual · Edición_

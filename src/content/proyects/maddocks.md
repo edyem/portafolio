@@ -10,4 +10,9 @@ collage:
   - 1_sc2vil
 ---
 
-Desarrollo de identidad gráfica para proyecto de revista digital.
+Diseño y exploración de una tipografía display de alto impacto, construida para títulos, posters y composiciones gráficas con personalidad fuerte y contraste visual.
+
+- **Exploración de estilo:** Referencias y definición del ADN visual.
+- **Construcción de formas:** Módulos, proporciones y coherencia entre glifos.
+- **Pruebas de composición:** Repetición, escalas, contraste y legibilidad en display.
+- **Aplicaciones:** Piezas gráficas y mockups para validar el sistema.
