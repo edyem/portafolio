@@ -202,7 +202,7 @@ a {
 @media (max-width: 768px) {
     .project-collage {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-auto-rows: 90px;      /* alto base de las celdas */
   grid-auto-flow: dense;      /* rellena huecos como masonry */
   gap: 16px;
